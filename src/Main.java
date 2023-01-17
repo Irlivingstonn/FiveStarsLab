@@ -1,6 +1,6 @@
 // Name: Isabella Livingston
 // Date: 17 January 2023
-// Description:
+// Description: Prints out the average amount of reviews per every review entered
 
 
 import java.util.ArrayList;
@@ -27,17 +27,10 @@ public class Main {
         ratings.add(r2);
         ratings.add(r3);
 
-        System.out.println(ratings);
         Collections.sort(ratings);
 
-
-        /**
         for (Rating r: ratings) {
             System.out.println(r);
         }
-
-         **/
-
-
     }
 }

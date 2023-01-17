@@ -1,4 +1,4 @@
-public class Rating {
+public class Rating implements Comparable<Rating>{
 
     // The sum of all ratings
     private double sumOfRatings;
@@ -28,16 +28,60 @@ public class Rating {
 
     // Return the average rating
     public double getAverageRating(){
-        return (this.sumOfRatings/this.raters);
+        if (this.sumOfRatings/this.raters != this.sumOfRatings/this.raters){
+            return 0;
+        }
+        else{
+            return (this.sumOfRatings/this.raters);
+        }
     }
 
     // Display the average rating and how many reviews it is based on
     public String toString(){
-        return (this.sumOfRatings + " based on " + this.raters + " reviews");
+
+        return (this.getAverageRating() + " based on " + this.raters + " reviews");
     }
 
-    public int compareTo()
+    // CompareTo Method to Sort Ratings
+    public int compareTo(Rating object1){
 
-    // makes sure to make getters and setters AND toString method
+        if (object1.getAverageRating() == this.getAverageRating()){
+            if (object1.raters > this.raters){
+                return 1;
+            }
 
+            else if (this.raters > object1.raters){
+                return -1;
+            }
+
+            // if they have the same amount of ratings then the 1st object returns
+            return 0;
+        }
+
+        else if (object1.getAverageRating() > this.getAverageRating()){
+            return 1;
+        }
+
+        else {
+            return -1;
+        }
+    }
+
+    // Getters
+    public double getSumOfRatings(){
+        return this.sumOfRatings;
+    }
+
+    public int getRaters(){
+        return this.raters;
+    }
+
+    // Setters
+    public void setSumOfRatings(double sumOfRatings){
+        this.sumOfRatings = sumOfRatings;
+    }
+
+    public void setRaters(int raters){
+        this.raters = raters;
+    }
 }
